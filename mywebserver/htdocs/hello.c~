@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int split(char **arr,char *str,const char*del)
+{
+    char *s=NULL;
+    int i=0;
+    s=strtok(str,del);
+    while(s!=NULL)
+    {
+        *arr++=s;
+        s=strtok(NULL,del);
+        i++;
+    }
+    return i;
+}
+
+void split_key(char *ch,char *key,char *value)
+{
+    int len;
+    int i;
+    int j;
+    len=strlen(ch);
+    j=0;
+    for(i=0;i<len;i++)
+    {
+        if(ch[i]=='=')
+        {
+            i++;
+            break;
+        }
+        key[j]=ch[i];
+        j++;
+    }
+    key[j]=0;
+    j=0;
+    for(;i<len;i++)
+    {
+        value[j]=ch[i];
+        j++;
+    }
+    value[j]=0;
+    return ;
+}
+
+int main(int argc,char **args)
+{
+    char *data;
+    char *myargs[32];
+    int cnt=0;
+    int i;
+    char key[32],value[32];
+    char username[32],password[32];
+    memset(myargs,0,sizeof(myargs));
+    cnt=split(myargs,args[1],"&");
+
+    for(i=0;i<cnt;i++)
+    {
+        split_key(myargs[i],key,value);
+        if(strcmp(key,"username")==0)
+            strcpy(username,value);
+        if(strcmp(key,"password")==0)
+            strcpy(password,value);
+    }
+
+    //这里可以写上完整的网页
+    if(strcmp(username,"admin")==0 && strcmp(password,"123456")==0)
+    {
+        printf("1");
+    }
+    else
+    {
+        printf("0");
+    }
+    return 0;
+}

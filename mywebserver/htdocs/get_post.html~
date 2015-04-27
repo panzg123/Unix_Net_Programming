@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Test</title>
+        <meta http-equiv="Content-Type" content="text/html ; charset=utf-8">
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <script language="javascript" src="my_test.js"></script>
+    </head>
+    <body>
+        <div class="ceshi">图片</div><img src="ucas.jpg"></img>
+	<br>
+        <input name="button" type="button" value="Click!" onclick=hi();></input>
+	</br>
+
+        <hr>
+        <br>使用post方式<br>
+        <form method="post" name="frm1" action="hello">
+            <label>用户名:</label>
+            <input type="text" name="username" />
+            <br>
+            <label>密码:</label>
+            <input type="password" name="password" />
+            <br>
+            <input type="submit" name="commit" value="登陆"/>
+            <br>
+        </form>
+        <hr>
+        <br>使用get方式<br>
+        <form method="get" name="frm1" action="hello">
+            <label>用户名:</label>
+            <input type="text" name="username" />
+            <br>
+            <label>密码:</label>
+            <input type="password" name="password" />
+            <br>
+            <input type="submit" name="commit" value="登陆"/>
+            <br>
+        </form>
+     </body>
+</html>
