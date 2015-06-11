@@ -1,0 +1,1 @@
+make clean;make;rmmod sipfw_module.ko;insmod sipfw_module.ko
