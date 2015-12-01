@@ -151,7 +151,6 @@ int Server::get_line(int sock, char *buf, int size) {
 			c = '\n';
 	}
 	buf[i] = '\0';
-
 	return (i);
 }
 
